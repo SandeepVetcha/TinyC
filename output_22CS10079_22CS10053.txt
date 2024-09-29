@@ -1,0 +1,102 @@
+
+----------- Parsing Line Number 1 -----------
+
+----------- Parsing Line Number 2 -----------
+
+
+type_specifier: int
+declaration_specifiers_opt: (empty)
+declaration_specifiers: type_specifier declaration_specifiers_opt
+pointer_opt: (empty)
+direct_declarator: identifierdeclarator: pointer direct_declarator
+constant: integer_constant
+primary_expression: constant
+postfix_expression: primary_expression
+unary_expression: postfix_expression
+cast_expression: unary_expression
+multiplicative_expression: cast_expression
+additive_expression: multiplicative_expression
+shift_expression: additive_expression
+relational_expression: shift_expression
+equality_expression: relational_expression
+AND_expression: equality_expression
+exclusive_OR_expression: AND_expression
+inclusive_OR_expression: exclusive_OR_expression
+logical_AND_expression: inclusive_OR_expression
+logical_OR_expression: logical_AND_expression
+conditional_expression: logical_OR_expression
+assignment_expression: conditional_expression
+initializer: assignment_expression
+init_declarator: declarator = initializer
+init_declarator_list: init_declarator
+init_declarator_list_opt: init_declarator_list
+declaration: declaration_specifiers ;
+external_declaration: declaration
+translation_unit: external_declaration
+
+----------- Parsing Line Number 3 -----------
+
+
+
+----------- Parsing Line Number 4 -----------
+
+
+type_specifier: int
+declaration_specifiers_opt: (empty)
+declaration_specifiers: type_specifier declaration_specifiers_opt
+pointer_opt: (empty)
+direct_declarator: identifiertype_specifier: int
+declaration_specifiers_opt: (empty)
+declaration_specifiers: type_specifier declaration_specifiers_opt
+pointer_opt: (empty)
+direct_declarator: identifierdeclarator: pointer direct_declarator
+parameter_declaration: declaration_specifiers declarator
+parameter_list: parameter_declaration
+type_specifier: int
+declaration_specifiers_opt: (empty)
+declaration_specifiers: type_specifier declaration_specifiers_opt
+pointer_opt: (empty)
+direct_declarator: identifierdeclarator: pointer direct_declarator
+parameter_declaration: declaration_specifiers declarator
+parameter_list: parameter_list , parameter_declaration
+parameter_type_list: parameter_list
+direct_declarator: direct_declarator ( parameter_type_list )
+declarator: pointer direct_declarator
+declaration_list_opt: (empty)
+primary_expression: identifier
+postfix_expression: primary_expression
+unary_expression: postfix_expression
+cast_expression: unary_expression
+multiplicative_expression: cast_expression
+additive_expression: multiplicative_expression
+primary_expression: identifier
+postfix_expression: primary_expression
+unary_expression: postfix_expression
+cast_expression: unary_expression
+multiplicative_expression: cast_expression
+additive_expression: additive_expression + multiplicative_expression
+shift_expression: additive_expression
+relational_expression: shift_expression
+equality_expression: relational_expression
+AND_expression: equality_expression
+exclusive_OR_expression: AND_expression
+inclusive_OR_expression: exclusive_OR_expression
+logical_AND_expression: inclusive_OR_expression
+logical_OR_expression: logical_AND_expression
+conditional_expression: logical_OR_expression
+assignment_expression: conditional_expression
+expression: assignment_expression
+expression_opt: expression
+jump_statement: return expression_opt ;
+statement: jump_statement
+block_item: statement
+block_item_list: block_item
+block_item_list_opt: block_item_list
+compound_statement: { block_item_list_opt }
+function_definition: declaration_specifiers declarator declaration_list_opt compound_statement
+external_declaration: function_definition
+translation_unit: translation_unit external_declaration
+ERROR [Line 4] : Invalid token  meow
+ERROR: syntax error
+		 at line: 4
+	near "  "

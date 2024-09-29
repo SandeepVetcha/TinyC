@@ -1,4 +1,6 @@
+
 %{
+    #include <stdio.h>
     #include "y.tab.h"
 
 %}
@@ -35,7 +37,7 @@ PARANTHESIS     "{"|"}"|"("|")"|"{"|"}"
 UnaryOP         "&"|"*"|"+"|"-"|"~"|"!"
 
 /* Whitespace recognition */
-WHITE_SPACE     [  \t]
+WHITE_SPACE     [ \t]
 NEWLINE        \n
 
 
@@ -87,7 +89,7 @@ NEWLINE        \n
 {LITERAL}                   {yylval.sValue = strdup(yytext) ;return LITERAL;}
 
 {WHITE_SPACE}               {}
-{NEWLINE}                   {printf("\n----------- Parsing Line Number %d -----------\n", yylineno);}
+'\n'                  { printf("\n----------- Parsing Line Number %d -----------\n", yylineno); }
 
 "//"                        {BEGIN(SINGLE_LINE_COMM);}
 <SINGLE_LINE_COMM>.         {}
@@ -145,8 +147,10 @@ NEWLINE        \n
 "^="                        {return XOR_ASSIGN;}
 "|="                        {return OR_ASSIGN;}
 
-.                           { printf("ERROR [Line %d] : Invalid token %s\n", yylineno, yytext); return INVALID_TOKEN; }
+.                           { printf("ERROR [Line %d] : Invalid token %s meow\n", yylineno, yytext); return INVALID_TOKEN; }
 
+
+%% 
 int yywrap(){
     return 1;
 }

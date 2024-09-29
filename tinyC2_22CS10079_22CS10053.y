@@ -27,8 +27,8 @@
 %token <cValue> CONSTANT_CHAR
 %token <sValue> LITERAL
 
-//%nonassoc PARANTHESIS_CLOSE
-//%nonassoc ELSE
+%nonassoc PARANTHESIS_CLOSE
+%nonassoc ELSE
 
 %start translation_unit
 
